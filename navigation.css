@@ -1,0 +1,136 @@
+#navbar ul,
+.navbar-dropdown {
+
+    background: rgb(51, 181, 229);
+    background: linear-gradient(162deg, #33b5e5 0%, #2b9c8b 50%, #44af69 100%);
+
+    /*
+  background: #36befd;
+  background: linear-gradient(135deg,#36befd 1%,#6461f6 100%);
+  */
+    box-shadow: 0 5px 10px #1c695d;
+    margin: 0;
+}
+
+#navbar li {
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+}
+
+#navbar li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 15px;
+    border: 3px solid transparent;
+}
+
+.navbar-dropdown a {
+    transition: 0.5s;
+    font-weight: normal;
+    padding: 0;
+}
+
+
+/* ALLIGN RIGHT EXCEPT HOME */
+
+#navbar ul {
+    padding: 0;
+    /* padding: 0px 10px; */
+    text-align: right;
+}
+
+#navbar>ul>li:first-child {
+    float: left;
+}
+
+#navbar>ul>li:last-child {
+    text-align: left;
+}
+
+/* HOVER HIGHLIGHTS */
+
+.navbar-dropdown-button:hover>a,
+#navbar a:hover {
+    /* background: #5dcfbd; */
+    border-radius: 20px;
+    border-color: #bfd6ff !important;
+    transition: border-color 0.5s, border-radius 0.5s;
+}
+
+.navbar-dropdown a:hover {
+    background: #b5c3f3;
+}
+
+.currentPage {
+    border: 3px solid #03cbab !important;
+    border-radius: 20px;
+}
+
+/* DROPDOWN */
+
+.caret {
+    position: absolute;
+    top: 25px;
+    right: 45px;
+    border-top: 4px dashed;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+/* Hold the absolute child within */
+.navbar-dropdown-button {
+    position: relative;
+    width: 150px;
+}
+
+.navbar-dropdown {
+    width: 100%;
+    text-align: left;
+    z-index: 9999;
+    display: none;
+    position: absolute;
+    left: 0;
+    border-radius: 20px;
+}
+
+li:hover .navbar-dropdown {
+    display: block;
+}
+
+
+/* BUTTON ICONS */
+
+#navbar img {
+    height: 20px;
+}
+
+.home-button {
+    content: url("https://image.flaticon.com/icons/svg/609/609803.svg");
+}
+
+.gallery-button {
+    content: url("https://image.flaticon.com/icons/svg/1040/1040241.svg");
+}
+
+.story-button {
+    content: url("https://image.flaticon.com/icons/svg/1580/1580680.svg");
+}
+
+.table-button {
+    content: url("https://image.flaticon.com/icons/svg/2289/2289340.svg");
+}
+
+.cool-button {
+    content: url("https://image.flaticon.com/icons/svg/470/470340.svg");
+}
+
+.animation-button {
+    content: url("https://image.flaticon.com/icons/svg/1917/1917679.svg");
+}
+
+.loading-button {
+    content: url("https://image.flaticon.com/icons/svg/1665/1665733.svg");
+}

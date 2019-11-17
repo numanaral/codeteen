@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Table </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigation.css">
+
+    <style>
+        table {
+            width: 100%;
+        }
+
+        thead tr {
+            border-radius: 25px;
+        }
+
+        table,
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        td,
+        th {
+            border: 2px solid black;
+        }
+
+        thead tr {
+            background: grey;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: lightgrey;
+        }
+
+        tbody tr:nth-child(even) {
+            background: white;
+        }
+
+        tbody tr:hover {
+            background: darkgrey;
+        }
+
+        td:hover {
+            cursor: zoom-in;
+            transform: scale(1.1);
+            font-weight: bold;
+            background: grey;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        td {
+            width: 34%;
+        }
+
+        td:first-child,
+        td:nth-child(2) {
+            width: 16% !important;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <div id="navbar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img class="home-button"> Home
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html">
+                    <img class="gallery-button"> Gallery
+                </a>
+            </li>
+            <li>
+                <a href="portfolio.html">
+                    <img class="story-button"> Portfolio
+                </a>
+            </li>
+            <li>
+                <a class="currentPage" href="users.html">
+                    <img class="table-button"> Users
+                </a>
+            </li>
+            <li class="navbar-dropdown-button">
+                <a>
+                    <img class="cool-button"> Others
+                    <span class="caret"> </span>
+                </a>
+                <div class="navbar-dropdown">
+                    <a href="animations.html">
+                        <img class="animation-button"> Animations
+                    </a>
+                    <a href="loading.html">
+                        <img class="loading-button"> Loading
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <!-- https://www.generatedata.com/ -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Names</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ciaran</td>
+                    <td>(941) 310-2645</td>
+                    <td>risus.Nunc@non.com</td>
+                    <td>Nulla Ltd</td>
+                </tr>
+                <tr>
+                    <td>Emma</td>
+                    <td>(857) 377-5160</td>
+                    <td>cursus.non@co.uk</td>
+                    <td>Montes Company</td>
+                </tr>
+                <tr>
+                    <td>Mohammad</td>
+                    <td>(920) 429-8625</td>
+                    <td>pede@porta.edu</td>
+                    <td>Mi LLP</td>
+                </tr>
+                <tr>
+                    <td>Jorden</td>
+                    <td>(604) 384-0788</td>
+                    <td>lorem.Donec.@co.uk</td>
+                    <td>Vulputate Corporation</td>
+                </tr>
+                <tr>
+                    <td>Barclay</td>
+                    <td>(224) 360-3799</td>
+                    <td>sit.amet.dapibus@ea.net</td>
+                    <td>Suspendisse Sed Industries</td>
+                </tr>
+                <tr>
+                    <td>Idona</td>
+                    <td>(978) 768-0884</td>
+                    <td>non.leo.Vivamus@nonummy.edu</td>
+                    <td>Eu Accumsan Sed Limited</td>
+                </tr>
+                <tr>
+                    <td>Aurelia</td>
+                    <td>(647) 403-2194</td>
+                    <td>consequat@parturient.org</td>
+                    <td>Euismod Industries</td>
+                </tr>
+                <tr>
+                    <td>Megan</td>
+                    <td>(665) 149-8024</td>
+                    <td>amet.orci.Ut@ridiculus.co.uk</td>
+                    <td>Fusce Aliquam LLC</td>
+                </tr>
+                <tr>
+                    <td>Alexander</td>
+                    <td>(219) 234-3699</td>
+                    <td>Cras@Aliquamornarelibero.com</td>
+                    <td>Nulla At Sem Consulting</td>
+                </tr>
+                <tr>
+                    <td>Otto</td>
+                    <td>(559) 872-0365</td>
+                    <td>ut.lacus.Nulla@Mauris.ca</td>
+                    <td>Lobortis Augue Limited</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

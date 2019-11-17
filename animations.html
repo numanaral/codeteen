@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Animations </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigation.css">
+    <style>
+        button {
+            border-radius: 500%;
+            margin-left: 50px;
+            height: 200px;
+            width: 200px;
+            color: white;
+            font-weight: bold;
+            font-size: 200%;
+            outline: none;
+            border: none;
+            background: rgb(51, 181, 229);
+            background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4 51%, #E55D87 100%);
+            /* background-image: linear-gradient(to right, #22cfd1 30%, #33b5e5 70%); */
+            background-size: 200% auto;
+            box-shadow: 0 10px black;
+            transition: 0.8s;
+        }
+
+        button:active {
+            background-position: right center;
+            box-shadow: 0 5px black;
+            transform: translateY(5px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <div id="navbar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img class="home-button"> Home
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html">
+                    <img class="gallery-button"> Gallery
+                </a>
+            </li>
+            <li>
+                <a href="portfolio.html">
+                    <img class="story-button"> Portfolio
+                </a>
+            </li>
+            <li>
+                <a href="users.html">
+                    <img class="table-button"> Users
+                </a>
+            </li>
+            <li class="navbar-dropdown-button">
+                <a class="currentPage">
+                    <img class="cool-button"> Others
+                    <span class="caret"> </span>
+                </a>
+                <div class="navbar-dropdown">
+                    <a href="animations.html" class="currentPage">
+                        <img class="animation-button"> Animations
+                    </a>
+                    <a href="loading.html">
+                        <img class="loading-button"> Loading
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1> Buttons </h1>
+        <hr>
+
+        -- TO BE MODIFIED WITH THE UPDATED CODE --
+
+        <button> - &nbsp - <br> ___ </button>
+        <p> This button does bla bla </p>
+
+
+        <button> - ___' </button>
+    </div>
+</body>
+
+</html>

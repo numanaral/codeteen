@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Home </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigation.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+        .container div,
+        #coolButton {
+            border-radius: 50%;
+        }
+
+        .scontainer {
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            width: 700px;
+            height: 700px;
+            position: relative
+        }
+
+        .scontainer div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            text-align: center;
+            width: 80%;
+            height: 80%;
+            border: 1px solid white;
+            transition: 0.7s ease-in-out;
+        }
+
+        #homePageShapes>div {
+            background-color: red;
+        }
+
+        #homePageShapes>div>div {
+            background-color: orange;
+        }
+
+        #homePageShapes>div>div>div {
+            background-color: yellow;
+        }
+
+        #homePageShapes>div>div>div>div {
+            background-color: purple;
+        }
+
+        #homePageShapes>div>div>div>div>div {
+            background-color: blue;
+        }
+
+        #homePageShapes>div>div>div>div>div>div {
+            background-color: green;
+        }
+
+        #homePageShapes>div>div>div>div>div>div>div {
+            background-color: white;
+        }
+
+        #coolButton {
+            font-size: 10px;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #4CAF50;
+        }
+
+        #coolButton:hover {
+            background: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <div id="navbar">
+        <ul>
+            <li>
+                <a class="currentPage" href="index.html">
+                    <img class="home-button"> Home
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html">
+                    <img class="gallery-button"> Gallery
+                </a>
+            </li>
+            <li>
+                <a href="portfolio.html">
+                    <img class="story-button"> Portfolio
+                </a>
+            </li>
+            <li>
+                <a href="users.html">
+                    <img class="table-button"> Users
+                </a>
+            </li>
+            <li class="navbar-dropdown-button">
+                <a>
+                    <img class="cool-button"> Others
+                    <span class="caret"> </span>
+                </a>
+                <div class="navbar-dropdown">
+                    <a href="animations.html">
+                        <img class="animation-button"> Animations
+                    </a>
+                    <a href="loading.html">
+                        <img class="loading-button"> Loading
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="scontainer" id="homePageShapes">
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <button id="coolButton">
+                                            CLICK ME
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Lols this is when I was first learning jquery, just change this to vanilla asap
+        $(function () {
+
+            $('#coolButton').on('click', function () {
+
+                $div = $('#homePageShapes');
+                var cl = 1;
+                var $celm = $div.children();
+
+                while (cl > 0) {
+                    changeChildColor($celm);
+                    animateBorder($celm);
+
+                    if ($celm.children().length <= 0) {
+                        cl = 0;
+                        return;
+                    }
+
+                    $celm = $celm.children();
+
+                }
+
+            });
+
+            // Change child color
+            function changeChildColor(elm) {
+                var x = Math.floor((Math.random() * 255));
+                var y = Math.floor((Math.random() * 255));
+                elm.css('background-color',
+                    'rgb(' + x + ', ' + y + ',100)');
+            }
+
+            function animateBorder(elm) {
+                elm.css('border-width', '15px');
+                setTimeout(function () {
+                    elm.css('border-width', '1px');
+                }, 1000)
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>

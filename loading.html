@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Loading </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigation.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: black;
+            opacity: 0.8;
+            z-index: 500;
+        }
+
+        .placeholder {
+            z-index: 501;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 200px;
+            margin: auto;
+        }
+
+        .loader {
+            border: 20px solid;
+            width: 100%;
+            height: 100%;
+            border-top-color: #DB4437;
+            /* red */
+            border-right-color: #4285F4;
+            /* blue */
+            border-bottom-color: #0F9D58;
+            /* green */
+            border-left-color: #F4B400;
+            /* yellow */
+            border-radius: 50%;
+            animation: bigSpinninCircle 3s linear infinite, circleShadow 3s linear infinite;
+        }
+
+        .loadingText {
+            font-size: 150%;
+            color: deepskyblue;
+            font-weight: bold;
+            position: absolute;
+            top: 45%;
+            left: 25%;
+        }
+
+        @keyframes bigSpinninCircle {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(180deg) scale(1.4)
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        /* This is animating the circle 
+      - Size gets bigger and smallar
+      - COOL!!
+      */
+        @keyframes bigCircle {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2)
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* This is animating the circle 
+        - Shadow gets bigger and smallar
+        - COOL!
+      */
+        @keyframes circleShadow {
+            0% {
+                box-shadow: 0 0 25px #4285F4;
+                /* blue */
+            }
+
+            25% {
+                box-shadow: 0 0 100px #0F9D58;
+                /* green */
+            }
+
+            50% {
+                box-shadow: 0 0 200px #F4B400;
+                /* yellow */
+            }
+
+            75% {
+                box-shadow: 0 0 100px #DB4437;
+                /* red */
+            }
+
+            100% {
+                box-shadow: 0 0 25px #4285F4;
+                /* blue */
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .loadingText span {
+            font-size: 35px;
+            text-shadow: 0 0 100px deepskyblue;
+            opacity: 0;
+            animation: wordMagic 3s linear infinite;
+        }
+
+        .loadingText span:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .loadingText span:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes wordMagic {
+            0% {
+                opacity: 0.2;
+            }
+
+            50% {
+                color: deepskyblue;
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <div id="navbar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img class="home-button"> Home
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html">
+                    <img class="gallery-button"> Gallery
+                </a>
+            </li>
+            <li>
+                <a href="portfolio.html">
+                    <img class="story-button"> Portfolio
+                </a>
+            </li>
+            <li>
+                <a href="users.html">
+                    <img class="table-button"> Users
+                </a>
+            </li>
+            <li class="navbar-dropdown-button">
+                <a class="currentPage">
+                    <img class="cool-button"> Others
+                    <span class="caret"> </span>
+                </a>
+                <div class="navbar-dropdown">
+                    <a href="animations.html">
+                        <img class="animation-button"> Animations
+                    </a>
+                    <a href="loading.html" class="currentPage">
+                        <img class="loading-button"> Loading
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="overlay">
+    </div>
+
+    <div class="placeholder">
+        <div class="loader">
+        </div>
+        <div class="loadingText">
+            Loading
+            <span> . </span>
+            <span> . </span>
+            <span> . </span>
+        </div>
+    </div>
+</body>
+
+</html>

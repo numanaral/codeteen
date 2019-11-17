@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Gallery </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigation.css">
+    <style>
+        .flexbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+
+        .flexbox-container img {
+            margin: 20px;
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px black;
+            transition: 0.5s;
+        }
+
+        .flexbox-container img:hover {
+            cursor: zoom-in;
+            transform: scale(1.2);
+            box-shadow: 0 0 25px 15px black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <div id="navbar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img class="home-button"> Home
+                </a>
+            </li>
+            <li>
+                <a class="currentPage" href="gallery.html">
+                    <img class="gallery-button"> Gallery
+                </a>
+            </li>
+            <li>
+                <a href="portfolio.html">
+                    <img class="story-button"> Portfolio
+                </a>
+            </li>
+            <li>
+                <a href="users.html">
+                    <img class="table-button"> Users
+                </a>
+            </li>
+            <li class="navbar-dropdown-button">
+                <a>
+                    <img class="cool-button"> Others
+                    <span class="caret"> </span>
+                </a>
+                <div class="navbar-dropdown">
+                    <a href="animations.html">
+                        <img class="animation-button"> Animations
+                    </a>
+                    <a href="loading.html">
+                        <img class="loading-button"> Loading
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="flexbox-container">
+            <img src="https://www.wildflowerinc.net/images/telsg10/TEV42-3%5E3xg.jpg">
+            <img src="https://www.wildflowerinc.net/images/telsg10/TRS14-1%5E3xg.jpg">
+            <img src="https://www.wildflowerinc.net/images/telsg10/TLR07-1%5E2xg.jpg">
+            <img src="https://www.wildflowerinc.net/images/telsg10/TEV56-2%5E3xg.jpg">
+        </div>
+    </div>
+
+</body>
+
+</html>
