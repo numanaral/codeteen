@@ -2,6 +2,7 @@
 
 html {
     background: rgba(68, 175, 105, 0.5);
+    overflow-x: hidden;
 }
 
 html,
@@ -23,6 +24,6 @@ body {
 }
 
 .container {
-    padding: 5%;
+    margin: 5%;
     min-height: 100%;
 }

@@ -8,22 +8,30 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navigation.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <style>
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .curvy-square {
+            border-radius: 10px !important;
+        }
+
         .container div,
         #coolButton {
             border-radius: 50%;
         }
 
         .scontainer {
+            width: 90vw;
+            height: 90vw;
+            position: absolute;
+            max-width: 900px;
+            max-height: 900px;
             left: 0;
             right: 0;
             margin: auto;
-            text-align: center;
-            width: 700px;
-            height: 700px;
-            position: relative
         }
 
         .scontainer div {
@@ -36,36 +44,7 @@
             text-align: center;
             width: 80%;
             height: 80%;
-            border: 1px solid white;
             transition: 0.7s ease-in-out;
-        }
-
-        #homePageShapes>div {
-            background-color: red;
-        }
-
-        #homePageShapes>div>div {
-            background-color: orange;
-        }
-
-        #homePageShapes>div>div>div {
-            background-color: yellow;
-        }
-
-        #homePageShapes>div>div>div>div {
-            background-color: purple;
-        }
-
-        #homePageShapes>div>div>div>div>div {
-            background-color: blue;
-        }
-
-        #homePageShapes>div>div>div>div>div>div {
-            background-color: green;
-        }
-
-        #homePageShapes>div>div>div>div>div>div>div {
-            background-color: white;
         }
 
         #coolButton {
@@ -83,6 +62,21 @@
 
         #coolButton:hover {
             background: #3e8e41;
+        }
+
+        .button-container {
+            width: 100%;
+            position: sticky;
+            display: inline-block;
+            text-align: center;
+            bottom: 25px;
+        }
+
+        .buttons {
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            background: #3aa778;
         }
     </style>
 </head>
@@ -137,7 +131,8 @@
                             <div>
                                 <div>
                                     <div>
-                                        <button id="coolButton">
+                                        <button onclick="changeColors(); changeShapes();"
+                                            id="coolButton">
                                             CLICK ME
                                         </button>
                                     </div>
@@ -148,51 +143,145 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="button-container">
+        <button class="buttons" onclick="changeShapes()"> Change Shape </button>
+        <button class="buttons" onclick="changeColors()"> Change Colors </button>
+        <button class="buttons" onclick="changeBorders()"> Change Borders </button>
     </div>
 
     <script>
-        // Lols this is when I was first learning jquery, just change this to vanilla asap
-        $(function () {
-
-            $('#coolButton').on('click', function () {
-
-                $div = $('#homePageShapes');
-                var cl = 1;
-                var $celm = $div.children();
-
-                while (cl > 0) {
-                    changeChildColor($celm);
-                    animateBorder($celm);
-
-                    if ($celm.children().length <= 0) {
-                        cl = 0;
-                        return;
-                    }
-
-                    $celm = $celm.children();
-
-                }
-
-            });
-
-            // Change child color
-            function changeChildColor(elm) {
-                var x = Math.floor((Math.random() * 255));
-                var y = Math.floor((Math.random() * 255));
-                elm.css('background-color',
-                    'rgb(' + x + ', ' + y + ',100)');
+        function getDivs() {
+            try {
+                return [].slice.call(document.querySelectorAll('.container div'), 0);
+            } catch {
+                return document.querySelectorAll('.container div');
             }
+        }
 
-            function animateBorder(elm) {
-                elm.css('border-width', '15px');
+        function getRandomRgb() {
+            var x = Math.floor((Math.random() * 255));
+            var y = Math.floor((Math.random() * 255));
+            return 'rgb(' + x + ', ' + y + ', 229)';
+        }
+
+        function getRandomHex() {
+            return '#' + Math.random().toString(16).substr(2, 6);
+        }
+
+        /*
+         * SRC: https://stackoverflow.com/questions/17242144/javascript-convert-hsb-hsv-color-to-rgb-accurately#answer-17243070
+         *  
+         * accepts parameters
+         * h  Object = {h:x, s:y, v:z}
+         * OR 
+         * h, s, v        
+         */
+        function HSVtoRGB(h, s, v) {
+            var r, g, b, i, f, p, q, t;
+            if (arguments.length === 1) {
+                s = h.s, v = h.v, h = h.h;
+            }
+            i = Math.floor(h * 6);
+            f = h * 6 - i;
+            p = v * (1 - s);
+            q = v * (1 - f * s);
+            t = v * (1 - (1 - f) * s);
+            switch (i % 6) {
+                case 0:
+                    r = v, g = t, b = p;
+                    break;
+                case 1:
+                    r = q, g = v, b = p;
+                    break;
+                case 2:
+                    r = p, g = v, b = t;
+                    break;
+                case 3:
+                    r = p, g = q, b = v;
+                    break;
+                case 4:
+                    r = t, g = p, b = v;
+                    break;
+                case 5:
+                    r = v, g = p, b = q;
+                    break;
+            }
+            return {
+                r: Math.round(r * 255),
+                g: Math.round(g * 255),
+                b: Math.round(b * 255)
+            };
+        }
+
+        /*
+            SRC: https://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
+
+            HUE: 
+            - use golden ratio for rand()
+            - 0.618033988749895
+            SAT:
+            - use a preffered fixed value
+            - Eg: 0.5
+            VAL
+            - use a preffered fixed value
+            - Eg: 0.95
+        }
+        */
+        function getNiceRandomColor() {
+            var golden_ratio_conjugate = 0.618033988749895;
+            var randHue = (Math.random() + golden_ratio_conjugate) % 1;
+            var fixedSat = 0.65;
+            var fixedVal = 0.95;
+
+            var hsv = HSVtoRGB(randHue, fixedSat, fixedVal);
+            return 'rgb(' + hsv.r + ', ' + hsv.g + ', ' + hsv.b + ')';
+        }
+
+
+
+        function changeBorders() {
+            loopWithDelay(getDivs(), function (i) {                
+                i.style.border = '5px solid white';
                 setTimeout(function () {
-                    elm.css('border-width', '1px');
-                }, 1000)
+                i.style.border = '1px solid white';
+                }, 2500)
+            })
+        }
+
+
+        function loopWithDelay(arr, callback, reverse = false, delay = 200) {
+            if (reverse) try {
+                arr = arr.reverse();
+            } catch {}
+            for (var i = 0; i < arr.length; i++) {
+                (function (i) {
+                    setTimeout(function () {
+                        callback(arr[i]);
+                    }, i * delay)
+                })(i)
             }
+        }
 
+        var sq = true;
 
-        });
+        function changeShapes() {
+            loopWithDelay(getDivs(), function (i) {
+                if (i.classList.contains('curvy-square')) {
+                    i.classList.remove('curvy-square');
+                    return;
+                }
+                i.classList.add('curvy-square');
+            }, sq)
+            sq = !sq;
+        }
+
+        function changeColors() {
+            loopWithDelay(getDivs(), function (i) {
+                i.style.backgroundColor = getNiceRandomColor();
+            })
+        }
     </script>
 </body>
 
