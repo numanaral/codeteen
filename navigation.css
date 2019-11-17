@@ -36,6 +36,8 @@
 /* ALLIGN RIGHT EXCEPT HOME */
 
 #navbar ul {
+    position: fixed;
+    width: 100%;
     padding: 0;
     /* padding: 0px 10px; */
     text-align: right;
