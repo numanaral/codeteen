@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> INDEX </title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        p {
+            color: red;
+            background: aqua;
+        }
+
+        #third-paragraph {
+            background: orange;
+        }
+
+        .green-bg {
+            background: lightgreen;
+        }
+
+        div.container {
+            padding: 10px;
+            margin: 10px;
+            border: 5px dashed black;
+            /* The above is equal the following three
+        border-width: 5px;
+        border-style: dashed;
+        border-color: black;
+        */
+        }
+
+        .container.second-div {
+            border-style: double;
+        }
+    </style>
+</head>
+
+<!-- SOME COMMENT HERE -->
+
+<body>
+    <p class="container">
+        This paragraph is outside the div
+    </p>
+
+    <div class="container second-div">
+        another div
+    </div>
+
+    <div class="container">
+        <p style="color: black">
+            some pharagraph text
+            <br /><br />
+            next line
+        </p>
+        <p>
+            second pharagraph
+        </p>
+        <p id="third-paragraph">
+            this is the third paragraph
+        </p>
+        <p class="green-bg">
+            this is the fourth paragraph
+        </p>
+        <p class="green-bg">
+            this is the fifth paragraph
+        </p>
+
+        <button>
+            Button
+        </button>
+
+        <a href="#"> Link </a>
+    </div>
+
+</body>
+
+</html>
