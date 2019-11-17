@@ -19,17 +19,50 @@
 #navbar li a {
     color: white;
     text-decoration: none;
-    display: block;
+    display: inline-block;
     padding: 5px 15px;
     border: 3px solid transparent;
 }
 
 .navbar-dropdown a {
+    display: block !important;
     transition: 0.5s;
     font-weight: normal;
     padding: 0;
 }
 
+/* MOBILE */
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */            
+    #navbar ul {
+        text-align: center !important;
+    }
+    #navbar ul > li {
+        float: none !important;
+        width: 13% !important;
+    }
+    #navbar a {
+        /* padding: 15px !important; */
+        text-align: center !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #navbar ul > li {
+        width: 100% !important;
+        display: block !important;
+    }
+    #navbar > ul > li:last-child {
+        text-align: center !important;
+    }
+    #navbar li {
+        padding: 0 !important;
+    }
+    #navbar a {        
+        display: block !important;
+    }
+}
 
 /* ALLIGN RIGHT EXCEPT HOME */
 
