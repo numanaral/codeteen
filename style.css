@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
+html {
+    background: rgba(68, 175, 105, 0.5);
+}
+
 html,
 body {
     margin: 0;
@@ -20,6 +24,5 @@ body {
 
 .container {
     padding: 5%;
-    background: rgba(68, 175, 105, 0.5);
     min-height: 100%;
 }
