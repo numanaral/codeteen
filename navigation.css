@@ -1,13 +1,11 @@
 #navbar ul,
 .navbar-dropdown {
-
     background: rgb(51, 181, 229);
     background: linear-gradient(162deg, #33b5e5 0%, #2b9c8b 50%, #44af69 100%);
-
     /*
-  background: #36befd;
-  background: linear-gradient(135deg,#36befd 1%,#6461f6 100%);
-  */
+    background: #36befd;
+    background: linear-gradient(135deg,#36befd 1%,#6461f6 100%);
+    */
     box-shadow: 0 5px 10px #1c695d;
     margin: 0;
 }
@@ -35,9 +33,10 @@
 
 /* ALLIGN RIGHT EXCEPT HOME */
 
-#navbar ul {
-    position: fixed;
-    width: 100%;
+#navbar ul {    
+    z-index: 999;
+    /* position: fixed; */
+    /* width: 100%; */
     padding: 0;
     /* padding: 0px 10px; */
     text-align: right;
